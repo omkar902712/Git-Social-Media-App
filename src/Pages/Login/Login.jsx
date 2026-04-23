@@ -74,7 +74,9 @@ const Login = () => {
 
                 <br /> <br />
 
-                <Link> Forgot Password ? </Link>
+                <Link to='/forgotpassword'>
+                  Forgot Password
+                </Link>
 
                 <br /> <br />
 
