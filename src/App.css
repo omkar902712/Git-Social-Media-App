@@ -9,6 +9,7 @@
 } 
 */
 
+/* Login.jsx - Add Background Images  */
  .login-bg-img {
    background-image: url('../src/Images/Background_Login.jpg');
    background-size: cover;
@@ -19,6 +20,7 @@
    min-height: 100vh;
  }
 
+ /* ForgotPassword.jsx - Add Background Images */
  .forgot-password-bg-img {
    background-image: url('../src/Images/Background_Forgot_Password.jpg');
    background-size: cover;
@@ -29,6 +31,7 @@
    min-height: 100vh;
  }
 
+  /* Register.jsx - Add Background Images */
  .register-bg-img {
    background-image: url('../src/Images/Background_Register.jpg');
    background-size: cover;
@@ -39,6 +42,7 @@
    min-height: 100vh;
  }
 
+/* Home.jsx - Add Background Images */
  .home-bg-img {
    background-image: url('../src/Images/Background_Home.jpg');
    background-size: cover;
