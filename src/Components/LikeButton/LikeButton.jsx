@@ -12,7 +12,7 @@ const LikeButton = () => {
     const newNumber = likes + 1; // Add 1 to the current number
 
     setLikes(newNumber); // Task 1: Show the new number on the screen
-    localStorage.setItem('my_likes', newNumber); // Task 2: Save it in the pocket
+    localStorage.setItem('my_likes', newNumber); // Task 2: Save it in the pocket 
   }
 
   return (
