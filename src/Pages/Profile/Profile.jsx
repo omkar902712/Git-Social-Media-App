@@ -18,7 +18,7 @@ const Profile = () => {
       <div className='row'>
         <div className='col-sm-4'></div>
 
-        <div className='col-sm-4 mt-3'>
+        <div className='col-sm-4 border mt-3'>
           <h3 className='alert alert-info border text-center'> Profile </h3>
 
           <div className='card'>
