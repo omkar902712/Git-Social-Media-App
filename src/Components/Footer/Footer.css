@@ -1,0 +1,96 @@
+/* General Styles */
+.site-footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 50px 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Column Styles */
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3, .footer-column h4 {
+  margin-bottom: 15px;
+  color: #ff9800; /* Accent color */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+/* Newsletter Form */
+.newsletter form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: none;
+  width: min(150px, 100%);
+  flex: 1 1 220px;
+  margin: 10;
+}
+
+.newsletter button {
+  padding: 12px 20px;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  color: #777;
+  font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .newsletter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

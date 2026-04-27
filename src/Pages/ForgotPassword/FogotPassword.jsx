@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./FotgotPassword.css";
 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
 
@@ -22,8 +22,10 @@ const ForgotPassword = () => {
     }
 
     if (newPassword !== confirmPassword) {
-      setMessage({ text: 'Passwords do not match!',
-      type: 'error' });
+      setMessage({
+        text: 'Passwords do not match!',
+        type: 'error'
+      });
       return;
     }
 
@@ -33,62 +35,70 @@ const ForgotPassword = () => {
       user.password = newPassword;
       localStorage.setItem('user', JSON.stringify(user));
 
-      setMessage({text : 'Password updated! Redirecting to login.', type:'success'});
+      setMessage({ text: 'Password updated! Redirecting to login.', type: 'success' });
 
-      setTimeout(()=>{
+      setTimeout(() => {
         navigate('/');
-      },2000);
+      }, 2000);
     } else {
-      setMessage({text : 'User not found with this email.', type:'error'});
+      setMessage({ text: 'User not found with this email.', type: 'error' });
     }
   };
 
   return (
-    <div className='container'>
-      <div className='form-container'>
-        <form onSubmit={handleReset}>
-          <div className='alert alert-success'>
-            <h4 className='mt-2'> Forgot Password </h4>
+    <div className='container-fluid forgot-password-bg-img'>
+      <div className='row'>
+        <div className='col-sm-4'> </div>
+
+        <div className='col-sm-4 text-center'>
+          <div className='form form-container mt-5'>
+            <form onSubmit={handleReset}>
+              <h4 className='alert alert-success mt-2'>
+                Forgot Password
+              </h4>
+
+              <input type="email" placeholder='Enter Your Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
+
+              <br /> <br />
+
+              <input type="password" placeholder='New Password'
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required />
+
+              <br /> <br />
+
+              <input type="password"
+                placeholder='Confirm New Password'
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required />
+
+              <br /> <br />
+
+              <button type="submit" className='btn btn-success'>
+                Update Password
+              </button>
+
+              <br /> <br />
+
+              {/* Message */}
+              <div>
+                {message.text && (
+                  <p className={`message ${message.type === 'error' ? 'message-error' : 'message-success'}`}>
+                    {message.text}
+                  </p>
+                )}
+              </div>
+
+            </form>
           </div>
+        </div>
 
-          <input type="email" placeholder='Enter Your Email' required
-            value={email} onChange={(e) => setEmail(e.target.value)}
-            
-          />
-
-          <br /> <br />
-
-          <input type="password" placeholder='New Password' required
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          
-          />
-
-          <br /> <br />
-
-          <input type="password" required
-            placeholder='Confirm New Password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-           
-          />
-
-          <br /> <br />
-
-          <button type="submit" className='btn btn-success'>
-            Update Password
-          </button>
-
-          {/* Message */}
-          <div>
-            {message.text && (
-              <p className={`message ${message.type === 'error' ? 'message-error' : 'message-success'}`}>
-                {message.text}
-              </p>
-            )}
-          </div>
-
-        </form>
+        <div className='col-sm-4'> </div>
       </div>
     </div>
   );

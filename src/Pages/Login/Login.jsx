@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 //import styles from './Login.module.scss';
 import './Login.css';
-
+  
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
@@ -37,64 +37,44 @@ const Login = () => {
   }
 
   return (
-    <>
-      {/* <div>
-        <form onSubmit={handleLogin}>
-          <h1> Login Page </h1>
+    <div className='container-fluid login-bg-img'>
+      <div className="row">
+        <div className='col-sm-4'></div>
 
-          <input type="email" name="email" placeholder='Email'
-            onChange={handleChange} />
+        <div className='col-sm-4 text-center mt-5'>
+          {isLogin &&
+            <form onSubmit={handleLogin} className='form-container'>
+              <h4 className="alert alert-info"> User Login </h4>
 
-          <br /> <br />
+              <input type="email" name="email"
+                placeholder='Email' onChange={handleChange} required />
 
-          <input type="password" name="password" placeholder='Password'
-            onChange={handleChange} />
+              <br /> <br />
 
-          <br /> <br />
+              <input type="password" name="password" placeholder='Password' onChange={handleChange} required />
 
-          <button type="submit"> Login </button>
-        </form>
-      </div> */}
+              <br /> <br />
 
-      <div className='container'>
-        <div className='form-container'>
-          {isLogin ?
-            <div>
-              <form onSubmit={handleLogin}>
-                <div className="alert alert-info">
-                  <h4> User Login </h4>
-                </div>
+              <Link to='/forgotpassword'>Forgot Password</Link>
 
-                <input type="email" name="email"
-                  placeholder='Email' onChange={handleChange} required />
+              <br /> <br />
 
-                <br /> <br />
+              <button type="submit" className="btn btn-success">Login</button>
 
-                <input type="password" name="password" placeholder='Password' onChange={handleChange} required />
+              <br /> <br />
 
-                <br /> <br />
-
-                <Link to='/forgotpassword'>
-                  Forgot Password
-                </Link>
-
-                <br /> <br />
-
-                <button type="submit" className="btn btn-success">Login</button>
-
-                <br /> <br />
-
-                <p>
-                  Not a member ?
-                  <Link to='/register'> Register </Link>
-                </p>
-              </form>
-            </div>
-            : <div> </div>
+              <p>
+                Not a member ?
+                <Link to='/register'> Register </Link>
+              </p>
+            </form>
           }
         </div>
+
+        <div className='col-sm-4'></div>
       </div>
-    </>
+
+    </div>
   );
 };
 

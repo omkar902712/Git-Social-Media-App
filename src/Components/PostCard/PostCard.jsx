@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CommentBox from '../CommentBox/CommentBox';
 import LikeButton from '../LikeButton/LikeButton';
 import { AuthContext } from '../../Context/AuthContext';
 import './PostCard.css';
 
 const PostCard = ({ post, index, onDelete }) => {
+
+  console.log('Post Prop :', post.image);
+
   const { user } = useContext(AuthContext);
+  const [showComment, setShowComment] = useState(true);
 
   const postUser = user || {
     name: 'Anonymous',
@@ -19,15 +23,17 @@ const PostCard = ({ post, index, onDelete }) => {
   };
 
   return (
-    <div className="container mt-3">
-      <div className="row justify-content-center">
+    <div className="container-fluid mt-5">
+      <div className="row">
+        <div className='col-sm-3'> </div>
 
-        <div className="col-sm-12">
+        <div className="col-sm-6">
           <div className="card shadow">
+
             {/* Card Header */}
             <div className="card-header d-flex justify-content-between align-items-center">
 
-              <div className="d-flex align-items-center gap-2">              
+              <div className="d-flex align-items-center gap-2">
                 <div>
                   <span>{postUser.avatar}</span>
                   <h6 className="mb-1">{postUser.name}</h6>
@@ -41,35 +47,35 @@ const PostCard = ({ post, index, onDelete }) => {
             </div>
 
             {/* Image Top */}
-            {post.image && (
-              <img
-                src={post.image}
-                alt="Post"
-                className="card-img-top"
-              />
+            {post && (
+              <img src={post.image} alt="Post" className="card-img-top" />
             )}
 
             {/* Card Body */}
             <div className="card-body">
-              <p className="card-text">{post.text}</p>
+              <p className="card-text"> {post.text} </p>
 
               <div className="d-flex justify-content-between">
-                <LikeButton/>
-                <button className="btn btn-light">💬 Comment</button>
-                <button className="btn btn-light">↗️ Share</button>
+                <LikeButton />
 
+                <button className="btn btn-light"
+                  onClick={() => setShowComment(!showComment)}>
+                  💬 Comment
+                </button>
+
+                <button className="btn btn-light">↗️ Share</button>
               </div>
             </div>
 
             {/* Comment Box */}
             <div className="card-footer">
-              <CommentBox />
+              {showComment && <CommentBox />}
             </div>
 
           </div>
-
         </div>
 
+        <div className='col-sm-3'> </div>
       </div>
     </div>
   );

@@ -17,7 +17,11 @@ const CreatePost = ({ addPost }) => {
   const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -43,10 +47,11 @@ const CreatePost = ({ addPost }) => {
         <div className='col-sm-3'> </div>
 
         <div className='col-sm-6'>
-          <div className="card p-3 shadow">
+          <div className="card p-3 shadow form-container">
 
             {/* Title */}
             <h5 className="mb-3">Create Post</h5>
+            <div className="form">
 
             {/* Textarea */}
             <div className="mb-3">
@@ -104,6 +109,8 @@ const CreatePost = ({ addPost }) => {
               </button>
 
             </div>
+            
+          </div>
           </div>
         </div>
 

@@ -1,33 +1,116 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: gray;
-  color: white;
-  padding: 10px 20px;
+/* Glassmorphism Effect */
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    background: rgba(33, 37, 41, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+    height: 60px;
 }
 
-.logo {
-  margin: 0;
-  color: white;
+/* Brand Styling */
+.brand-logo {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-size: 1.5rem;
+    color: #fff !important;
 }
 
-.menu {
-  display: flex;
-  gap: 15px;
-  align-items: center;
+.logo-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #00d2ff;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
 }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-} 
-
-.img{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+/* Hover Animations */
+.nav-effect {
+    position: relative;
+    color: rgba(255,255,255,0.7) !important;
+    transition: color 0.3s ease;
 }
 
+.nav-effect:hover {
+    color: #fff !important;
+}
+
+.nav-effect::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00d2ff;
+    transition: width 0.3s ease;
+}
+
+.nav-effect:hover::after {
+    width: 100%;
+}
+
+/* Profile Image & User Badge */
+.nav-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00d2ff;
+    margin-right: 10px;
+}
+
+.nav-username {
+    color: #eee;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Custom Buttons */
+.btn-logout {
+    background: transparent;
+    border: 1px solid #ff4b2b;
+    color: #ff4b2b;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #ff4b2b;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+}
+
+.btn-login {
+    background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+    border: none;
+    color: white !important;
+    padding: 8px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+    .navbar-nav {
+        padding: 20px 0;
+        text-align: center;
+    }
+    .user-badge {
+        justify-content: center;
+        margin: 15px 0;
+    }
+}

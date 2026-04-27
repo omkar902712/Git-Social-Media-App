@@ -53,8 +53,8 @@ const Register = () => {
 
     if (!data.name || !data.email ||
       !data.password || !data.confirmPassword) {
-        alert("Fill All");
-        return;
+      alert("Fill All");
+      return;
     }
 
     if (data.password !== data.confirmPassword) {
@@ -70,64 +70,44 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
-      <div className="form-container">
+    <div className="container-fluid register-bg-img">    
+      <div className='row'>
+        <div className='col-sm-3'> </div>
 
-        {/* Form */}
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="alert alert-success">
-            <h4> Registration </h4>
-          </div>
+        <div className='col-sm-6'>                    
+          <form className="form form-container text-center mt-5" onSubmit={handleSubmit}>
+            <h4 className="alert alert-success">Register</h4>
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter Name"
-            value={data.name}
-            onChange={handleChange}
-            required
-          />
+            <input type="text" name="name"
+              placeholder="Enter Name"
+              value={data.name} onChange={handleChange} required />
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Email"
-            value={data.email}
-            onChange={handleChange}
-            required
-          />
+            <input type="email" name="email"
+              placeholder="Enter Email"
+              value={data.email} onChange={handleChange} required />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-            value={data.password}
-            onChange={handleChange}
-            required
-          />
+            <input type="password" name="password"
+              placeholder="Enter Password"
+              value={data.password} onChange={handleChange}
+              required />
 
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={data.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+            <input type="password" name="confirmPassword"
+              placeholder="Confirm Password"
+              value={data.confirmPassword}
+              onChange={handleChange} required />
 
-          <input type="file" name="image" onChange={handleChange} />
+            <input type="file" name="image" onChange={handleChange} />
 
-          {data.image && <img src={data.image} wdith="50" />}
+            {data.image && <img src={data.image} wdith="50" />}
 
-          <button type="submit">Register</button>
+            <button type="submit">Register</button>
 
-          <br /> <br />
+            <p> Existing User ? <Link to='/'> Login </Link> </p>
+          </form>
+        </div>
 
-          <p> Existing User ?
-            <Link to='/'> Login </Link>
-          </p>
+        <div className='col-sm-3'> </div>
 
-        </form>
       </div>
     </div>
   );

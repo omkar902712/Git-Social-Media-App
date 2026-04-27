@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import Navbar from '../../Components/Navbar/Navbar';
 import './Profile.css'
+import Footer from '../../Components/Footer/Footer';
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -12,24 +13,35 @@ const Profile = () => {
     <div className='container-fluid'>
       <Navbar />
 
+      <br/> <br/> <br/>
+
       <div className='row'>
-        <div className='col-sm-3'></div>
-        <div className='col-sm-6 border mt-3 bg-success'>
-          <h1 className='alert alert-info'> Profile </h1>
+        <div className='col-sm-4'></div>
 
-          {/* Details */}
-          <div className='details'>
-            <h3> Name: {user.name} </h3>
-            <h4> Email: {user.email} </h4>
-            <h4> Password: {user.password} </h4>            
+        <div className='col-sm-4 border mt-3'>
+          <h3 className='alert alert-info border text-center'> Profile </h3>
 
-            {user.image && (
-              <img src={user.image} className='profile-image' />
-            )}
+          <div className='card'>
+            {user.image &&
+              (<img src={user.image} className='profile-image' />)
+            }
+
+            <div className='card-body'>
+              <h4 className='card-title'> Name: {user.name} </h4>
+              <p className='card-text'>
+                Email: {user.email} <br />
+                Password: {user.password}
+              </p>
+            </div>
           </div>
+
         </div>
-        <div className='col-sm-3'></div>
+        <div className='col-sm-4'></div>
       </div>
+
+      <br/> <br/> <br/>
+
+      <Footer />
     </div>
   );
 };

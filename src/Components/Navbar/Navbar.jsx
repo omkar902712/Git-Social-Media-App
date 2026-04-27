@@ -1,83 +1,65 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-//import { AuthContext } from '../../Context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
-  // ===== old =====
-  //const navigate = useNavigate();  
-  
-  //const { user, setUser, login, logout } = useContex(AuthContext);  
-
-  // const handleLogout = () => {
-  //   setUser(null);
-  //   navigate('/');
-  // };
-
-  // ===== new =====
   const navigate = useNavigate();
-
   const user = JSON.parse(localStorage.getItem('currentUser'));
 
-  const handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem('currentUser');
     navigate('/');
-  }
+  };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-      <div className="container-fluid">
-
-        {/* Logo */}
-        <Link className="navbar-brand" to="/">
-          Social Media App
+    <nav className="navbar navbar-expand-lg sticky-top custom-navbar">
+      <div className="container">
+        {/* Brand with a modern gradient feel */}
+        <Link className="navbar-brand brand-logo" to="/">
+          <span className="logo-dot"></span> SocialMedia
         </Link>
 
-        {/* Toggle button */}
-        <button className="navbar-toggler" type="button"
+        <button 
+          className="navbar-toggler border-0" 
+          type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Menu */}
-        <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarContent">
+          <ul className="navbar-nav ms-auto align-items-center">
             <li className="nav-item">
-              <Link className="nav-link" to="/home">Home</Link>
+              <Link className="nav-link nav-effect" to="/home">Home</Link>
             </li>         
 
-            {user ?(
+            {user ? (
               <>
                 <li className="nav-item">
-                  <Link to='/profile' className='nav-link'>
-                    Profile
-                  </Link>
+                  <Link to='/profile' className='nav-link nav-effect'>Profile</Link>
                 </li>
 
-                {/* Image */}
-                <li>
+                <li className="nav-item d-flex align-items-center mx-lg-3 user-badge">
                   {user.image && (
-                    <img src={user.image} className='img' />
+                    <img src={user.image} alt="profile" className='nav-profile-img' />
                   )}
+                  <span className="nav-username">{user.name}</span>
                 </li>
 
                 <li className="nav-item">
-                  <span className="nav-link"> {user.name} </span>
-                </li>
-                <li className="nav-item">
-                  <button onClick={handleLogout} className="btn btn-danger btn-sm"> Logout </button>
+                  <button onClick={handleLogout} className="btn-logout">
+                    Logout
+                  </button>
                 </li>
               </>
-            ):(
+            ) : (
               <li className="nav-item">
-                <Link to='/' className='nav-link'> Login </Link>
+                <Link to='/' className='btn-login'> Login </Link>
               </li>
             )}
           </ul>
         </div>
-
       </div>
     </nav>
   );
