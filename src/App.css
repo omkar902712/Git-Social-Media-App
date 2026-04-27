@@ -52,4 +52,14 @@
    /* Keeps image still while scrolling */
    min-height: 100vh;
  }
- 
+
+/* Profile.jsx - Add Background Images */
+ .profile-bg-img {
+   background-image: url('../src/Images/Background_Profile.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   /* Keeps image still while scrolling */
+   min-height: 100vh;
+ }
