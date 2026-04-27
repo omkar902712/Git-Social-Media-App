@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 
 const CommentBox = () => {
 
+  // 1. When the app starts,
+  // try to get comments from the "notebook" (LocalStorage)
+  // If the notebook is empty, start with an empty list []
+  const [comment, setComment] = useState(()=>{
+    const savedComments = localStorage.getItem('comments');
+
+    return savedComments ? JSON.parse(savedComments) : [];
+  });
+
   const [text, setText] = useState('');
-  const [comment, setComment] = useState([]);
+
+  // 2. Every time the "comment" list changes, save it to the "notebook"
+  useEffect(()=>{
+    localStorage.setItem('comments', JSON.stringify(comment));
+  },[comment]);
 
   // Add Comment On Post  
   const handleComment = () => {
@@ -63,3 +76,4 @@ const CommentBox = () => {
 };
 
 export default CommentBox;
+
