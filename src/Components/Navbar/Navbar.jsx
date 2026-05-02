@@ -1,67 +1,91 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthContext';
 import './Navbar.css';
+import Register from '../../Pages/Register/Register';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('currentUser'));
+  const { user, login, logout } = useContext(AuthContext);
+
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setLoginData({...loginData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedUser && storedUser.email === loginData.email && storedUser.password === loginData.password) {
+      alert('Login Successful');
+      login(storedUser);
+      navigate('/home');
+    } else {
+      alert('Invalid Email & Password');
+    }
+  };
 
   const handleLogout = () => {
-    localStorage.removeItem('currentUser');
+    logout();
     navigate('/');
   };
 
-  return (
-    <nav className="navbar navbar-expand-lg sticky-top custom-navbar">
-      <div className="container">
-        {/* Brand with a modern gradient feel */}
-        <Link className="navbar-brand brand-logo" to="/">
-          <span className="logo-dot"></span> SocialMedia
-        </Link>
+  return (  
+      <nav className="navbar navbar-expand-lg custom-navbar">
+        <div className="container">
+          <h3 className="navbar-brand brand-logo" >SocialMedia</h3>
 
-        <button 
-          className="navbar-toggler border-0" 
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <div className="collapse navbar-collapse">
+            <ul className="navbar-nav ms-auto align-items-center">
+              {user ? (
+                <>                  
+                  <li className="nav-item mx-3 user-badge">
+                    {user.image && <img src={user.image} alt="profile" className="nav-profile-img" />}
+                    <span className="nav-username">{user.name}</span>
+                  </li>
+                  <li className="nav-item"><button onClick={handleLogout} className="btn-logout">Logout</button></li>
+                </>
+              ) : (
+                <form className="d-flex align-items-start mt-3" onSubmit={handleLogin}>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="form-control me-2 login-input-group" // Added class here
+                    onChange={handleChange}
+                    required
+                  />
 
-        <div className="collapse navbar-collapse" id="navbarContent">
-          <ul className="navbar-nav ms-auto align-items-center">
-            <li className="nav-item">
-              <Link className="nav-link nav-effect" to="/home">Home</Link>
-            </li>         
+                  {/* Added class here to the container */}
+                  <div className="d-flex flex-column me-2 login-input-group">
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      className="form-control"
+                      onChange={handleChange}
+                      required
+                    />
+                    <Link to="/forgotpassword" className="forgotPasswordLink">
+                      Forgot Password?
+                    </Link>
+                  </div>
 
-            {user ? (
-              <>
-                <li className="nav-item">
-                  <Link to='/profile' className='nav-link nav-effect'>Profile</Link>
-                </li>
-
-                <li className="nav-item d-flex align-items-center mx-lg-3 user-badge">
-                  {user.image && (
-                    <img src={user.image} alt="profile" className='nav-profile-img' />
-                  )}
-                  <span className="nav-username">{user.name}</span>
-                </li>
-
-                <li className="nav-item">
-                  <button onClick={handleLogout} className="btn-logout">
-                    Logout
-                  </button>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item">
-                <Link to='/' className='btn-login'> Login </Link>
-              </li>
-            )}
-          </ul>
+                  <button type="submit" className="btn btn-success">Login</button>
+                </form>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>      
+   
   );
 };
 

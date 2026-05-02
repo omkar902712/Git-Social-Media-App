@@ -38,6 +38,8 @@ const CommentBox = () => {
       
       <div className='row'>
         <div className='col-sm-9'>
+
+          aa
           <input type="text" value={text}
             placeholder="Write To Comments" className="form-control"
             onChange={(e) => setText(e.target.value)} />

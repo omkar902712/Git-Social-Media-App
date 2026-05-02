@@ -1,0 +1,19 @@
+/* login.css */
+
+/* Use a more specific selector to ensure it overrides defaults */
+.form-container .input_email, 
+.form-container .input_password {
+  width: 100%; /* Changed to 100% because it's inside a col-sm-4 */
+  max-width: 300px; /* Limits size so it doesn't get too huge */
+  height: 45px;
+  border-radius: 8px;
+  border: 2px solid #007bff; /* Changed color to make it obvious if it works */
+  padding: 0 10px;
+  display: inline-block;
+  outline: none;
+}
+
+.login-bg-img {
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Add a temp color to see if class applies */
+}

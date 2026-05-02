@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "./FotgotPassword.css";
 
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 
 const ForgotPassword = () => {
 
@@ -46,38 +48,45 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className='container-fluid forgot-password-bg-img'>
+    <div className='container-fluid form_bg'>
       <div className='row'>
+        <Navbar />
+      </div>
+
+      <div className='row mt-5'>
         <div className='col-sm-4'> </div>
 
         <div className='col-sm-4 text-center'>
-          <div className='form form-container mt-5'>
+          <div className='form form-container border'>
             <form onSubmit={handleReset}>
-              <h4 className='alert alert-success mt-2'>
+              <h4 className='alert alert-success'>
                 Forgot Password
               </h4>
 
               <input type="email" placeholder='Enter Your Email'
+                className='form-control'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required />
 
-              <br /> <br />
+              <br />
 
               <input type="password" placeholder='New Password'
+                className='form-control'
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 required />
 
-              <br /> <br />
+              <br />
 
               <input type="password"
                 placeholder='Confirm New Password'
+                className='form-control'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required />
 
-              <br /> <br />
+              <br />
 
               <button type="submit" className='btn btn-success'>
                 Update Password
@@ -99,6 +108,10 @@ const ForgotPassword = () => {
         </div>
 
         <div className='col-sm-4'> </div>
+      </div>
+
+      <div className='row mt-5'>
+        <Footer />
       </div>
     </div>
   );

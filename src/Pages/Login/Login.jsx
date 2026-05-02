@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 //import styles from './Login.module.scss';
 import './Login.css';
-  
+
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
@@ -37,21 +37,27 @@ const Login = () => {
   }
 
   return (
-    <div className='container-fluid login-bg-img'>
+    <div className='container-fluid'>
       <div className="row">
         <div className='col-sm-4'></div>
 
-        <div className='col-sm-4 text-center mt-5'>
+        <div className='col-sm-4 mt-5'>
           {isLogin &&
             <form onSubmit={handleLogin} className='form-container'>
               <h4 className="alert alert-info"> User Login </h4>
 
               <input type="email" name="email"
-                placeholder='Email' onChange={handleChange} required />
+              className='input_email'
+                placeholder='Email'
+                onChange={handleChange}
+                required />
 
               <br /> <br />
 
-              <input type="password" name="password" placeholder='Password' onChange={handleChange} required />
+              <input type="password" name="password"    
+              className='input_password'
+              placeholder='Password'              
+              onChange={handleChange} required />
 
               <br /> <br />
 
@@ -74,6 +80,7 @@ const Login = () => {
         <div className='col-sm-4'></div>
       </div>
 
+      
     </div>
   );
 };

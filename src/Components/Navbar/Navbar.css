@@ -1,14 +1,15 @@
-/* Glassmorphism Effect */
+/* Navbar.css */
 .custom-navbar {
-    position: sticky;
+    position: fixed; /* Fixed: changed from sticky-top to sticky */
     top: 0;
     z-index: 1100;
-    background: rgba(33, 37, 41, 0.9) !important;
+    width: 100%;       /* Changed from auto to ensure it spans the width */
+    background: navy !important;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.8rem 0;
     transition: all 0.3s ease;
-    height: 60px;
+    height: 80px;
 }
 
 /* Brand Styling */
@@ -31,7 +32,7 @@
 /* Hover Animations */
 .nav-effect {
     position: relative;
-    color: rgba(255,255,255,0.7) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
     transition: color 0.3s ease;
 }
 
@@ -109,8 +110,87 @@
         padding: 20px 0;
         text-align: center;
     }
+
     .user-badge {
         justify-content: center;
         margin: 15px 0;
     }
+}
+
+.nav-item a {
+    color: white !important;
+}
+
+.nav-link a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the links are white */
+.nav-item .nav-link {
+    color: white !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Fix the hover effect */
+.nav-item .nav-link:hover {
+    color: #00d2ff !important;
+    /* Adding a color change on hover */
+}
+
+/* Optional: If you want to use that 'nav-effect' underline animation you wrote earlier */
+.nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background-color: #00d2ff;
+    transition: width 0.3s ease;
+}
+
+.nav-item .nav-link:hover::after {
+    width: 100%;
+}
+
+.aa {
+    color: green;
+    text-decoration: none;
+    margin: 80px 50px 0px 0px;
+}
+
+.register {
+    margin-top: -20px;
+}
+
+
+/* Forces both the email input and the password div to be the same size */
+.login-input-group {
+    width: 200px;
+    /* Adjust this value to your preferred width */
+}
+
+/* Ensures the inputs inside those containers fill the 200px */
+.login-input-group .form-control {
+    width: 100%;
+}
+
+/* Optional: Align the "Forgot Password" link to the right to look cleaner */
+.forgotPasswordLink {
+    font-size: 0.75rem;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+    text-align: right;
+    /* Keeps it under the password box neatly */
+}
+
+.nav-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00d2ff;
+    margin-right: 10px;
 }

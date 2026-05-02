@@ -3,9 +3,9 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Navbar from './Components/Navbar/Navbar';
+//import Navbar from './Components/Navbar/Navbar';
 
-import Login from './Pages/Login/Login';
+// import Login from './Pages/Login/Login';
 import ForgotPassword from './Pages/ForgotPassword/FogotPassword';
 import Register from './Pages/Register/Register';
 
@@ -15,16 +15,17 @@ import Profile from './Pages/Profile/Profile';
 function App() {
   return (
     <BrowserRouter>
+
+      {/* ✅ ALWAYS SHOW NAVBAR */}
       <Routes>
-        <Route path='/' element={<Login />} />     
-        
         <Route path="/forgotpassword" element={<ForgotPassword/>} />
-        <Route path='/register' element={<Register />} />        
-        
+
+        <Route path='/' element={<Register />} />
+
         <Route path='/home' element={<Home />} />
-        <Route path='/profile' element={<Profile />} />       
-        
+        <Route path='/profile' element={<Profile />} />
       </Routes>
+
     </BrowserRouter>
   );
 }

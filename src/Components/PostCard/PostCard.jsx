@@ -71,7 +71,7 @@ const PostCard = ({ post, index, onDelete }) => {
             <div className="card-footer">
               {showComment && <CommentBox />}
             </div>
-
+            
           </div>
         </div>
 
