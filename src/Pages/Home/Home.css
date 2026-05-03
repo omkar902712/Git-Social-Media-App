@@ -1,23 +1,10 @@
-﻿/* Sidebar.css */
-.sidebar-container {
-  /* Remove width: 100% and position: fixed */
-  height: 100vh; /* Make it full height of the viewport */
-  background-color: cornflowerblue;
-  color: white;
+.content {
+  margin-left: 250px;     /* push content to the right of sidebar */
+  margin-top: 80px;       /* push below navbar */
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  /* Optional: keeps sidebar sticky when scrolling content */
-  position: sticky;
-  top: 0;
+  height: calc(100vh - 80px - 50px); /* viewport minus navbar & footer */
+  overflow-y: auto;       /* only main content scrolls */
 }
 
-/* Adjust logo color for better contrast on blue */
-.sidebar-logo {
-  color: #ffffff; 
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  font-weight: bold;
+.home_column{
 }

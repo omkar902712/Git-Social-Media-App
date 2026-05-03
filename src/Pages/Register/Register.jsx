@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import './Register.css';
 
-import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 
 import leftSideHomeImg from '../../assets/Images/Register/Register_Left_Side_Image.png';
@@ -141,133 +140,120 @@ const Register = () => {
 
     <div className="container-fluid">
 
-      {/* Navbar */}
-      <Navbar />
+      <div className="container-fluid">
 
-      <div className="row">
+        <div className="row">
+          {/* Left Side Image */}
+          <div className="col-sm-6">
+            <img src={leftSideHomeImg} alt="Register"
+              className="register-left-side-image" />
+          </div>
 
-        {/* Left Side Image */}
-        <div className="col-sm-6 mt-3">
-
-          <img
-            src={leftSideHomeImg}
-            alt="Register"
-            className="register-left-side-image"
-          />
-
-        </div>
-
-        {/* Register Form */}
-        <div className="col-sm-6 mt-3">
-
-          <form
-            className="form-group text-center"
-            onSubmit={handleSubmit}
-          >
-
-            <h4 className="alert alert-success">
-              Register
-            </h4>
-
-            {/* Name */}
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              placeholder="Enter Name"
-              value={data.name}
-              onChange={handleChange}
-              required
-            />
-
-            <br />
-
-            {/* Email */}
-            <input
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Enter Email"
-              value={data.email}
-              onChange={handleChange}
-              required
-            />
-
-            <br />
-
-            {/* Password */}
-            <input
-              type="password"
-              name="password"
-              className="form-control"
-              placeholder="Enter Password"
-              value={data.password}
-              onChange={handleChange}
-              required
-            />
-
-            <br />
-
-            {/* Confirm Password */}
-            <input
-              type="password"
-              name="confirmPassword"
-              className="form-control"
-              placeholder="Confirm Password"
-              value={data.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-
-            <br />
-
-            {/* Image Upload */}
-            <input
-              type="file"
-              name="image"
-              accept=".jpg, .jpeg, .png, .webp"
-              className="form-control"
-              onChange={handleChange}
-              ref={fileInputRef}
-              required
-            />
-
-            <br />
-
-            {/* Image Preview */}
-            {
-              data.image && (
-                <img
-                  src={data.image}
-                  alt="Preview"
-                  width="100"
-                  height="100"
-                />
-              )
-            }
-
-            <br />
-            <br />
-
-            {/* Register Button */}
-            <button
-              type="submit"
-              className="btn btn-success"
+          {/* Register Form */}
+          <div className="col-sm-6">
+            <form
+              className="form-group text-center"
+              onSubmit={handleSubmit}
             >
-              Register
-            </button>
 
-          </form>
+              <h4 className="alert alert-success">
+                Register
+              </h4>
 
+              {/* Name */}
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                placeholder="Enter Name"
+                value={data.name}
+                onChange={handleChange}
+                required
+              />
+
+              <br />
+
+              {/* Email */}
+              <input
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Enter Email"
+                value={data.email}
+                onChange={handleChange}
+                required
+              />
+
+              <br />
+
+              {/* Password */}
+              <input
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder="Enter Password"
+                value={data.password}
+                onChange={handleChange}
+                required
+              />
+
+              <br />
+
+              {/* Confirm Password */}
+              <input
+                type="password"
+                name="confirmPassword"
+                className="form-control"
+                placeholder="Confirm Password"
+                value={data.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+
+              <br />
+
+              {/* Image Upload */}
+              <input
+                type="file"
+                name="image"
+                accept=".jpg, .jpeg, .png, .webp"
+                className="form-control"
+                onChange={handleChange}
+                ref={fileInputRef}
+                required
+              />
+
+              <br />
+
+              {/* Image Preview */}
+              {
+                data.image && (
+                  <img
+                    src={data.image}
+                    alt="Preview"
+                    width="100"
+                    height="100"
+                  />
+                )
+              }
+
+              {/* Register Button */}
+              <button
+                type="submit"
+                className="btn btn-success"
+              >
+                Register
+              </button>
+
+            </form>
+          </div>
         </div>
 
+        {/* Footer */}
+        <div className="row mt-3">
+          <Footer />
+        </div>
       </div>
-
-      {/* Footer */}
-      <div className="row mt-3">
-        <Footer />
-      </div>
-
     </div>
   );
 };

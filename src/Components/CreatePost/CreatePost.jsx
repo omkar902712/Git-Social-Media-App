@@ -42,7 +42,8 @@ const CreatePost = ({ addPost }) => {
   };
 
   return (
-    <div className="container-fluid mt-3">
+    <div className="container-fluid create-post-container">      
+
       <div className="row">
         <div className='col-sm-3'> </div>
 
