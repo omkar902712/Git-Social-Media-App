@@ -11,6 +11,7 @@ import Register from './Pages/Register/Register';
 import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
 import UserImages from './Pages/UserImages/UserImages';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/profile' element={<Profile />} />
           <Route path="/userimages" element={<UserImages/>} />
+
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

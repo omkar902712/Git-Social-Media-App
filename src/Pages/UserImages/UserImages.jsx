@@ -3,22 +3,16 @@ import './UserImages.css';
 
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import Footer from '../../Components/Footer/Footer';
-import Navbar from '../../Components/Navbar/Navbar';
 
 const UserImages = () => {
-
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Get all data from local storage (stored as a JSON string)
-
-    const saveImages = localStorage.getItem('userImages');
-
-    if (saveImages) {
-      //2. Parse it back into a JavScript array
-      setImages(JSON.parse(saveImages));
-    }
-  }, []);
+    // This runs automatically when the component loads
+    const data = JSON.parse(localStorage.getItem('image')) || [];
+    console.log('Fetched images from localStorage:', data); // Debugging log
+    setImages(data);
+  }, []); // Empty dependency array means it runs once
 
   return (
     <div className='container-fluid'>
@@ -27,33 +21,31 @@ const UserImages = () => {
           <Sidebar />
         </div>
 
-        <div className='col-sm-10 text-center images-container'>
+        <div className='col-sm-10 images-container'>
           <h2> All images </h2>
 
-          {images.length === 0 ?
-            (<p> No Images Found In Local Storages.</p>) :
-            (<div className='gird'>
-              {images.map((item, index) => (
-                <img key={index}
-                  src={item}
-                  alt={`Stored local ${index}`}
-
+          {images.length === 0 ? (
+            <p> No Images Found In Local Storage.</p>
+          ) : (
+            <div className='grid'>
+              {images.map((img, index) => (
+                <img 
+                  key={index} 
+                  src={img} 
+                  alt={`User upload ${index}`} 
+                  style={{ width: '200px', margin: '10px' }} // Added basic styling
                 />
               ))}
-            </div>)}
-
+            </div>
+          )}
         </div>
       </div>
 
       <div className='row'>
         <Footer />
-        <div className='col-sm-12 p-0'>
-
-        </div>
       </div>
-
     </div>
   );
 };
 
-export default UserImages;  
+export default UserImages;

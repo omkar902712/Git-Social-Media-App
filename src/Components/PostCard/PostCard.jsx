@@ -53,7 +53,7 @@ const PostCard = ({ post, index, onDelete }) => {
 
             {/* Card Body */}
             <div className="card-body">
-              <p className="card-text"> {post.text} </p>
+              <p className="card-text cartText"> {post.text} </p>
 
               <div className="d-flex justify-content-between">
                 <LikeButton />
@@ -69,9 +69,15 @@ const PostCard = ({ post, index, onDelete }) => {
 
             {/* Comment Box */}
             <div className="card-footer">
-              {showComment && <CommentBox />}
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-sm-12'>
+                    {showComment && <CommentBox />}
+                  </div>
+                </div>
+              </div>
             </div>
-            
+
           </div>
         </div>
 

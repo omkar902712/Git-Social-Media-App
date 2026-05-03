@@ -21,7 +21,7 @@ const Profile = () => {
 
         <div className='col-sm-10 profile_column'>
           <div className='row justify-content-center'>
-            <div className='col-md-6 border mt-4'>
+            <div className='col-md-6 border'>
               <h3 className='alert alert-info border text-center'> Profile </h3>
 
               <div className='card shadow-sm mb-4'>
@@ -41,6 +41,8 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      <br/> <br/>
 
       {/* Footer spans the full width */}
       <div className='row'>

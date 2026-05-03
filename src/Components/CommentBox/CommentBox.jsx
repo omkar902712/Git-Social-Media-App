@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../Navbar/Navbar';
+import './CommentBox.css';
 
 const CommentBox = () => {
 
@@ -34,14 +34,12 @@ const CommentBox = () => {
 
   return (
     <div className='container-fluid'>
-      <br/> <br/>
+      <br/>
       
       <div className='row'>
-        <div className='col-sm-9'>
-
-          aa
+        <div className='col-sm-9'>          
           <input type="text" value={text}
-            placeholder="Write To Comments" className="form-control"
+            placeholder="Write To Comments..." className="form-control"
             onChange={(e) => setText(e.target.value)} />
         </div>
 
@@ -58,7 +56,7 @@ const CommentBox = () => {
           {/* Show Comments */}
           {comment.map((item, index) => (
             <div className='row mt-3'>
-              <div className='col-sm-8' style={{ backgroundColor: "lightgray" }}>
+              <div className='col-sm-8 commentReply'>
                 <p key={index}> {item} </p>
               </div>
 

@@ -1,1 +1,7 @@
 /* CommentBox component styles */
+.commentReply{
+  background-color: lightgrey;
+  padding: 5px 0px 0px 0px;
+  height: auto;
+  border-radius: 1.0rem;
+}

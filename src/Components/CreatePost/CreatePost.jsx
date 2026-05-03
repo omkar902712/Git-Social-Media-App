@@ -62,7 +62,7 @@ const CreatePost = ({ addPost }) => {
                 placeholder="What's on your mind?"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                rows="3"
+                rows="3"                
               />
             </div>
 
