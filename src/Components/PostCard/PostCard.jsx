@@ -76,7 +76,7 @@ const PostCard = ({ post, index, onDelete }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> 
 
           </div>
         </div>
