@@ -77,8 +77,8 @@ const PostCard = ({ post, index, onDelete }) => {
                 </div>
               </div>
             </div> 
-
-          </div>
+ 
+          </div> 
         </div>
 
         <div className='col-sm-3'> </div>
